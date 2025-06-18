@@ -4,7 +4,7 @@ Smart devices—such as smartphones and tablets—offer powerful features like c
 
 ---
 
-## 1. Manage Connectivity and Apps
+## Manage Connectivity and Apps
 
 - **Disable Unused Connections:**  
   Keep Bluetooth, NFC (Near Field Communication), mobile data, and Wi-Fi modules disabled when not in use.
@@ -17,7 +17,7 @@ Smart devices—such as smartphones and tablets—offer powerful features like c
 
 ---
 
-## 2. Monitor Device Health
+## Monitor Device Health
 
 - **Watch for Unusual Activity:**  
   Fast battery drainage or unexplained heating may indicate malicious activity or ongoing data transfer. Investigate such issues promptly.
@@ -26,7 +26,7 @@ Smart devices—such as smartphones and tablets—offer powerful features like c
 
 ---
 
-## 3. Device Lock and SIM Protection
+## Device Lock and SIM Protection
 
 - **Enable Auto-Lock:**  
   Set your device to lock automatically after a short period of inactivity.
@@ -38,7 +38,7 @@ Smart devices—such as smartphones and tablets—offer powerful features like c
 
 ---
 
-## 4. Privacy and Safe Usage
+## Privacy and Safe Usage
 
 - **Never Jailbreak Your Device:**  
   Jailbreaking removes built-in protections, allowing unsecure apps and increasing malware risk.
@@ -53,7 +53,7 @@ Smart devices—such as smartphones and tablets—offer powerful features like c
 
 ---
 
-## 5. Data Management and Backup
+## Data Management and Backup
 
 - **Regularly Delete Downloads:**  
   Remove files and email attachments that are no longer needed.
@@ -68,7 +68,7 @@ Smart devices—such as smartphones and tablets—offer powerful features like c
 
 ---
 
-## 6. Technical Terms
+## Technical Terms
 
 ### What is NFC / Bluetooth / Wi-Fi?
 

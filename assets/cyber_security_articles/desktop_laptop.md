@@ -1,10 +1,10 @@
-# Desktop & Laptop Security Best Practices
+# Desktop & Laptop Security
 
 Keeping your desktop or laptop secure is crucial for safeguarding your data and ensuring smooth operation. Follow these essential guidelines for safe and responsible device usage.
 
 ---
 
-## 1. Use Licensed and Supported Software
+## Use Licensed and Supported Software
 
 - **Install Only Licensed Operating Systems:** Always use a genuine, licensed operating system for your device.
 - **Check OS Support Status:** Ensure your OS is not “End-Of-Support.” For Microsoft Windows, verify OS validity at the [official Microsoft lifecycle page](https://support.microsoft.com/en-in/life).
@@ -19,7 +19,7 @@ Keeping your desktop or laptop secure is crucial for safeguarding your data and 
 
 ---
 
-## 2. Software Management
+## Software Management
 
 - **Install Only Licensed Software:** Avoid pirated or unlicensed applications.
 - **Avoid Freeware/Demo-Ware:** These might contain malicious content; use only trusted software from official OEM websites.
@@ -27,7 +27,7 @@ Keeping your desktop or laptop secure is crucial for safeguarding your data and 
 
 ---
 
-## 3. Anti-Virus Protection
+## Anti-Virus Protection
 
 - **Use Reputed Anti-Virus (AV) Software:** Install and maintain a reliable AV solution.
 - **Ensure AV is Always Running:** Look for the AV icon in the system tray (lower right corner near the date/time).
@@ -36,13 +36,13 @@ Keeping your desktop or laptop secure is crucial for safeguarding your data and 
 
 ---
 
-## 4. Safe Use of External Devices
+## Safe Use of External Devices
 
 - **Scan USB Drives:** Always run an AV scan on USB drives (pen drives, external hard disks) before use, especially from unknown sources.
 
 ---
 
-## 5. System Restore & Recovery
+## System Restore & Recovery
 
 - **Enable System Restore:** This feature helps recover your system after crashes or malware attacks.
 
@@ -56,7 +56,7 @@ Keeping your desktop or laptop secure is crucial for safeguarding your data and 
 
 ---
 
-## 6. Data Backup & Privacy
+## Data Backup & Privacy
 
 - **Regular Backups:** Keep backups of important files. Backups are the only effective defense against ransomware and data loss.
 - **Protect Sensitive Documents:** Store personal documents (e.g., Aadhaar, PAN, bank statements) in private folders with restricted access.
@@ -72,7 +72,7 @@ Keeping your desktop or laptop secure is crucial for safeguarding your data and 
 
 ---
 
-## 7. Responsible Device Usage
+## Responsible Device Usage
 
 - **Remove Personal Data Before Transfer:** Delete all personal files before handing over or returning an office PC.
 - **Restrict Remote Software Installation:** Do not allow remote users to install software.
@@ -83,7 +83,7 @@ Keeping your desktop or laptop secure is crucial for safeguarding your data and 
 
 ---
 
-## 8. Understanding OS Patching
+## Understanding OS Patching
 
 > **What is OS Patching?**  
 > An OS patch is a set of changes to a computer program or its supporting data designed to update, fix, or improve it. This includes fixing security vulnerabilities, other bugs (often called bug fixes), and enhancing usability or performance of the operating system.

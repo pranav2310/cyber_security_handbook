@@ -4,7 +4,7 @@ Stay safe while shopping and banking online by following these essential guideli
 
 ---
 
-## 1. Before You Buy
+## Before You Buy
 
 - **Check Seller Legitimacy:**  
   Read user reviews for both the product and the seller. If possible, call or visit the actual store to confirm legitimacy.
@@ -15,7 +15,7 @@ Stay safe while shopping and banking online by following these essential guideli
 
 ---
 
-## 2. Avoiding Scams and Phishing
+## Avoiding Scams and Phishing
 
 - **Ignore Unsolicited Offers:**  
   Do not entertain unsolicited emails from unknown websites, especially if they contain links or attachments.
@@ -29,7 +29,7 @@ Stay safe while shopping and banking online by following these essential guideli
 
 ---
 
-## 3. Secure Online Banking
+## Secure Online Banking
 
 - **Use Virtual Keyboards:**  
   If available, use a virtual keyboard for online banking logins to avoid keyloggers.
@@ -44,7 +44,7 @@ Stay safe while shopping and banking online by following these essential guideli
 
 ---
 
-## 4. Data Privacy and Card Security
+## Data Privacy and Card Security
 
 - **Destroy Unused Cards:**  
   Physically cut unused credit/debit cards and call the bank to cancel them. Obtain confirmation of cancellation.
@@ -55,7 +55,7 @@ Stay safe while shopping and banking online by following these essential guideli
 
 ---
 
-## 5. Why Do Companies Use Only SSL for E-Commerce Websites?
+## Why Do Companies Use Only SSL for E-Commerce Websites?
 
 - **Protects Customers' Login Information:**  
   SSL encrypts data, keeping login credentials safe from interception.
@@ -67,7 +67,7 @@ Stay safe while shopping and banking online by following these essential guideli
 
 ---
 
-## 6. Understanding Security Tools
+## Understanding Security Tools
 
 ### What is CAPTCHA?
 

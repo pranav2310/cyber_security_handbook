@@ -4,7 +4,7 @@ Stay safe online by following these essential web browsing guidelines. Protect y
 
 ---
 
-## 1. Use Trusted Browsers
+## Use Trusted Browsers
 
 - Always use only well-known browsers such as **Chrome**, **Firefox**, **Safari**, or **Edge**.
 - Download browsers directly from their official websites (OEM sites) only.
@@ -26,7 +26,7 @@ Stay safe online by following these essential web browsing guidelines. Protect y
 
 ---
 
-## 2. Safe Browsing Habits
+## Safe Browsing Habits
 
 - Never store your credentials (like passwords) in your browser, especially for banking or e-commerce sites.
 - Avoid clicking on advertisements and commercials on social networking sites.
@@ -45,7 +45,7 @@ Stay safe online by following these essential web browsing guidelines. Protect y
 
 ---
 
-## 3. Device and Data Safety
+## Device and Data Safety
 
 - Never perform online financial transactions on public computers (e.g., in airports).
 - Download software only from trusted sources such as official app stores or legitimate organizations (like your bank).
@@ -61,7 +61,7 @@ Stay safe online by following these essential web browsing guidelines. Protect y
 
 ---
 
-## 4. Smart Clicking and Downloading
+## Smart Clicking and Downloading
 
 - Be cautious about what you click or download. Pause and think before clicking links in emails, messages, or social media.
 - As a rule, do not click on links from unknown senders or unexpected messages.
@@ -71,7 +71,7 @@ Stay safe online by following these essential web browsing guidelines. Protect y
 
 ---
 
-## 5. What is a Cookie?
+## What is a Cookie?
 
 > **A cookie** is a text file that a web browser stores on your device. Cookies help websites remember your preferences, login status, and other session information.  
 > They are used for authentication, storing website information/preferences, and tracking browsing activity.  
@@ -79,7 +79,7 @@ Stay safe online by following these essential web browsing guidelines. Protect y
 
 ---
 
-## 6. What is a Pop-up Blocker?
+## What is a Pop-up Blocker?
 
 > **Pop-ups** are windows that appear automatically while browsing, often used for advertisements or notifications.  
 > A **pop-up blocker** is a browser feature that prevents these windows from appearing.  

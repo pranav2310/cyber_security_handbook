@@ -4,7 +4,7 @@ Protect yourself and your organization by following these essential email securi
 
 ---
 
-## 1. Password and Session Security
+## Password and Session Security
 
 - **Do not save email passwords** in web browsers or on mobile phones.
 - **Change your email password** at least once every 30 days.
@@ -12,7 +12,7 @@ Protect yourself and your organization by following these essential email securi
 
 ---
 
-## 2. Mailbox Hygiene
+## Mailbox Hygiene
 
 - **Keep your mailbox clean:**  
   Regularly delete unwanted messages and archive important ones.
@@ -20,7 +20,7 @@ Protect yourself and your organization by following these essential email securi
 
 ---
 
-## 3. Attachment Safety
+## Attachment Safety
 
 - **Do not open attachments** with extensions like:  
   `.VBS`, `.DLL`, `.EXE`, `.SHS`, `.PIF`, `.SCR`, `.U64`
@@ -31,7 +31,7 @@ Protect yourself and your organization by following these essential email securi
 
 ---
 
-## 4. Understanding Email Threats
+## Understanding Email Threats
 
 ### What is Email Spam?
 

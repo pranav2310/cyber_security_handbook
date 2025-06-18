@@ -4,7 +4,7 @@ Stay safe and protect your privacy while using social networking platforms by fo
 
 ---
 
-## 1. Account Registration & Information Sharing
+## Account Registration & Information Sharing
 
 - **Use a Dedicated Email:**  
   Do not use your official email address for registering on social networking sites. Create and use a personal email address strictly for this purpose.
@@ -17,7 +17,7 @@ Stay safe and protect your privacy while using social networking platforms by fo
 
 ---
 
-## 2. Managing Connections
+## Managing Connections
 
 - **Verify Friend Requests:**  
   Do not accept friend requests from unknown individuals unless you can verify their identity.
@@ -27,7 +27,7 @@ Stay safe and protect your privacy while using social networking platforms by fo
 
 ---
 
-## 3. Privacy & Posting
+## Privacy & Posting
 
 - **Be Careful What You Share:**  
   Refrain from sharing personal details or posting anything that could embarrass you or put you in an awkward situation in the future.
@@ -37,7 +37,7 @@ Stay safe and protect your privacy while using social networking platforms by fo
 
 ---
 
-## 4. Beware of Social Engineering
+## Beware of Social Engineering
 
 - **Unexpected Contacts:**  
   Be wary of unexpected visits, phone calls, or emails from people seeking personal or organizational information. Verify their identity directly with the company they claim to represent.
@@ -47,7 +47,7 @@ Stay safe and protect your privacy while using social networking platforms by fo
 
 ---
 
-## 5. Safe Browsing & Access
+## Safe Browsing & Access
 
 - **Avoid Suspicious Links:**  
   Never click on URLs in emails claiming to be from social networking sites. These could lead to “cloned” (fake) websites designed to steal your information.  
@@ -58,7 +58,7 @@ Stay safe and protect your privacy while using social networking platforms by fo
 
 ---
 
-## 6. Website Cloning & Phishing
+## Website Cloning & Phishing
 
 ### What is Website Cloning?
 
