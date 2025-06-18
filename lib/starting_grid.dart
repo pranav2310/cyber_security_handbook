@@ -20,7 +20,7 @@ class StartingGrid extends StatelessWidget {
       "E-Commerce and Banking Over Internet": "assets/cyber_security_articles/web_browsing.md",
     };
     return Scaffold(
-      appBar: AppBar(title: const Text('Cybersecurity Topics')),
+      appBar: AppBar(title: const Text('CyberGuard Handbook')),
       body: GridView(
         padding: const EdgeInsets.all(24),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
