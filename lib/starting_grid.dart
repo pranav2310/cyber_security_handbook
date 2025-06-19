@@ -7,17 +7,17 @@ class StartingGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Map<String,String> gridItems = {
-      "Desktop/Laptop Security": "assets/cyber_security_articles/desktop_laptop.md",
-      "Web Browsing": "assets/cyber_security_articles/web_browsing.md",
-      "Interactind on Social Media": "assets/cyber_security_articles/interacting_social_media.md",
-      "Defense Agains Malware": "assets/cyber_security_articles/malware_defense.md",
-      "Handling Removable Storage Media": "assets/cyber_security_articles/removable_drive.md",
-      "Portable Smart Devices": "assets/cyber_security_articles/portable_smart_device.md",
-      "Communicating Over Email": "assets/cyber_security_articles/email.md",
-      "Networking at Home": "assets/cyber_security_articles/home_network.md",
-      "Managing Passwords": "assets/cyber_security_articles/password.md",
-      "E-Commerce and Banking Over Internet": "assets/cyber_security_articles/web_browsing.md",
+    Map<String,List> gridItems = {
+      "Desktop/Laptop Security": ["assets/cyber_security_articles/desktop_laptop.md", Icon(Icons.laptop, size: 30,)],
+      "Web Browsing": ["assets/cyber_security_articles/web_browsing.md", Icon(Icons.web, size: 30,)],
+      "Interactind on Social Media": ["assets/cyber_security_articles/interacting_social_media.md", Icon(Icons.groups, size: 30,)],
+      "Defense Agains Malware": ["assets/cyber_security_articles/malware_defense.md", Icon(Icons.shield, size: 30,)],
+      "Handling Removable Storage Media": ["assets/cyber_security_articles/removable_drive.md", Icon(Icons.usb, size: 30,)],
+      "Portable Smart Devices": ["assets/cyber_security_articles/portable_smart_device.md", Icon(Icons.wifi, size: 30,)],
+      "Communicating Over Email": ["assets/cyber_security_articles/email.md", Icon(Icons.mail, size: 30,)],
+      "Networking at Home": ["assets/cyber_security_articles/home_network.md", Icon(Icons.home_filled, size: 30,)],
+      "Managing Passwords": ["assets/cyber_security_articles/password.md", Icon(Icons.password, size: 30,)],
+      "E-Commerce and Banking Over Internet": ["assets/cyber_security_articles/web_browsing.md", Icon(Icons.currency_rupee_sharp, size: 30,)],
     };
     return Scaffold(
       appBar: AppBar(title: const Text('CyberGuard Handbook')),
@@ -25,11 +25,11 @@ class StartingGrid extends StatelessWidget {
         padding: const EdgeInsets.all(24),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: 3 / 2,
-          crossAxisSpacing: 20,
-          mainAxisSpacing: 20,
+          childAspectRatio: 3 / 3,
+          crossAxisSpacing: 15,
+          mainAxisSpacing: 15,
         ),
-        children: gridItems.entries.map((item)=>StartingGridItem(mdfile: item.value, articleName: item.key)).toList()
+        children: gridItems.entries.map((item)=>StartingGridItem(mdfile: item.value[0], articleName: item.key, icon: item.value[1])).toList()
       ),
     );
   }

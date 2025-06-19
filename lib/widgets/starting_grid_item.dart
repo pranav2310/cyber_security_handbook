@@ -1,5 +1,5 @@
 // starting_grid_item.dart
-import 'package:cyber_security/widgets/markdown_page.dart';
+import 'package:cyber_security/markdown_page.dart';
 import 'package:flutter/material.dart';
 
 class StartingGridItem extends StatelessWidget {
@@ -7,10 +7,12 @@ class StartingGridItem extends StatelessWidget {
     super.key,
     required this.mdfile,
     required this.articleName,
+    required this.icon,
   });
 
   final String mdfile;
   final String articleName;
+  final Icon icon;
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +34,21 @@ class StartingGridItem extends StatelessWidget {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(16),
-            child: Text(
-              articleName,
-              style: Theme.of(context).textTheme.titleMedium,
-              textAlign: TextAlign.center,
-            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  icon.icon,
+                  size: 48,
+                ),
+                const SizedBox(height: 4,),
+                Text(
+                  articleName,
+                  style: Theme.of(context).textTheme.titleMedium,
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            )
           ),
         ),
       ),
