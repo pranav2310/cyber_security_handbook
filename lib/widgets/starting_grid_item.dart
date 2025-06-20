@@ -1,5 +1,5 @@
 // starting_grid_item.dart
-import 'package:cyber_security/markdown_page.dart';
+import 'package:cyber_security/screens/article_screen.dart';
 import 'package:flutter/material.dart';
 
 class StartingGridItem extends StatelessWidget {
@@ -17,6 +17,7 @@ class StartingGridItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Theme.of(context).colorScheme.primary,
       elevation: 4,
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
@@ -24,9 +25,10 @@ class StartingGridItem extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (ctx) => MarkdownPage(
+              builder: (ctx) => ArticleScreen(
                 mdfile: mdfile,
                 title: articleName,
+                initialSearch: '',
               ),
             ),
           );
