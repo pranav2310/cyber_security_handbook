@@ -27,7 +27,8 @@ class SectionDrawer extends StatelessWidget {
                 const SizedBox(height: 12),
                 IconButton(
                   onPressed: () {
-                    Navigator.popUntil(context, (route) => route.isFirst);
+                    Navigator.pop(context);
+                    Navigator.pop(context);
                   },
                   icon: const Icon(Icons.home),
                   tooltip: 'Go Back to Home Page',
