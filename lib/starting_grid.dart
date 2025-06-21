@@ -1,7 +1,12 @@
 // starting_grid.dart
 import 'package:cyber_security/screens/search_screen.dart';
 import 'package:cyber_security/widgets/starting_grid_item.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+final Color orange = const Color(0xFFF37022);
+final Color blue = const Color(0xFF051951);
+final Color white = const Color(0xFFFFFFFF);
 
 class StartingGrid extends StatelessWidget {
   const StartingGrid({super.key});
@@ -52,7 +57,14 @@ class StartingGrid extends StatelessWidget {
     };
     return Scaffold(
       appBar: AppBar(
-        title: const Text('CyberGuard Handbook'),
+        title: const Text(
+          'CyberGuard Handbook',
+          style: TextStyle(
+            color: Color(0xFF051951),
+            fontWeight: FontWeight.bold,
+            fontSize: 24
+          ),
+        ),
         actions: [
           IconButton(onPressed: (){
             Navigator.push(context, MaterialPageRoute(
@@ -65,7 +77,7 @@ class StartingGrid extends StatelessWidget {
         padding: const EdgeInsets.all(24),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: 3 / 3,
+          childAspectRatio: kIsWeb? 4/3 : 3 / 3,
           crossAxisSpacing: 15,
           mainAxisSpacing: 15,
         ),

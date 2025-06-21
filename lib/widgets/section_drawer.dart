@@ -19,21 +19,29 @@ class SectionDrawer extends StatelessWidget {
     return Drawer(
       child: ListView(
         children: [
-          DrawerHeader(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(mainTitle, style: Theme.of(context).textTheme.headlineSmall),
-                const SizedBox(height: 12),
-                IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(Icons.home),
-                  tooltip: 'Go Back to Home Page',
-                ),
-              ],
+          SizedBox(
+            height: 212,
+            child: DrawerHeader(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(mainTitle, style: Theme.of(context).textTheme.headlineMedium),
+                  const SizedBox(height: 12),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(
+                      Icons.home,
+                      color: Colors.white,
+                      size: 32,
+                    ),
+                    tooltip: 'Go Back to Home Page',
+                  ),
+                ],
+              ),
             ),
           ),
           ...List.generate(sections.length, (i) {

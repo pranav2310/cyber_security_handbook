@@ -1,6 +1,10 @@
 import 'package:cyber_security/starting_grid.dart';
 import 'package:flutter/material.dart';
 
+final Color orange = const Color(0xFFF37022);
+final Color blue = const Color(0xFF051951);
+final Color white = const Color(0xFFFFFFFF);
+
 void main() {
   runApp(const MyApp());
 }
@@ -11,24 +15,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'CyberGuard Handbook',
+      title: 'Cyber Security Handbook',
       theme: ThemeData(
         appBarTheme: AppBarTheme(
-          color: Color.fromARGB(255, 37, 131, 224)
+          color: orange
         ),
         iconTheme: IconThemeData(
-          color: Colors.white
+          color: blue
         ),
         colorScheme: ColorScheme(
           brightness: Brightness.light, 
-          primary: Color.fromARGB(255, 37, 131, 224), 
-          onPrimary: Color(0xFFFFFFFF), 
-          secondary: Color(0xFF3ad0ff), 
-          onSecondary: Color(0xFFB3B3B3), 
+          primary: orange, 
+          onPrimary: blue, 
+          secondary: white, 
+          onSecondary: blue, 
           error: Colors.red,
-          onError: Colors.black, 
-          surface: Color(0xFF22396e), 
-          onSurface: Color.fromARGB(255, 213, 235, 254)
+          onError: white, 
+          surface: blue, 
+          onSurface: white
         )
       ),
       home: const StartingGrid(),
