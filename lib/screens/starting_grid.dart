@@ -75,7 +75,7 @@ class StartingGrid extends StatelessWidget {
       body: GridView(
         padding: const EdgeInsets.all(24),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
+          crossAxisCount: kIsWeb? 4 : 2,
           childAspectRatio: kIsWeb? 4/3 : 3 / 3,
           crossAxisSpacing: 15,
           mainAxisSpacing: 15,

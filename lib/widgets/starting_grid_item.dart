@@ -1,5 +1,6 @@
 // starting_grid_item.dart
 import 'package:cyber_security/screens/article_screen.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class StartingGridItem extends StatelessWidget {
@@ -41,7 +42,7 @@ class StartingGridItem extends StatelessWidget {
               children: [
                 Icon(
                   icon.icon,
-                  size: 48,
+                  size: kIsWeb? 96: 48,
                 ),
                 const SizedBox(height: 4,),
                 Text(
