@@ -1,4 +1,4 @@
-import 'package:cyber_security/starting_grid.dart';
+import 'package:cyber_security/screens/starting_grid.dart';
 import 'package:flutter/material.dart';
 
 final Color orange = const Color(0xFFF37022);

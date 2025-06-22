@@ -1,4 +1,3 @@
-// starting_grid.dart
 import 'package:cyber_security/screens/search_screen.dart';
 import 'package:cyber_security/widgets/starting_grid_item.dart';
 import 'package:flutter/foundation.dart';
