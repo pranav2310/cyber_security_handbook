@@ -33,6 +33,8 @@ class _ArticleScreenState extends State<ArticleScreen> {
 
   int _currentSectionIndex = 0;
 
+  bool _showScrollToTop = false;
+
   Map<String, dynamic> parseMarkdown(String markdown) {
     final h1Pattern = RegExp(r'^# (.+)$', multiLine: true);
     final h2Pattern = RegExp(r'^## (.+)$', multiLine: true);
@@ -95,6 +97,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
     final positions = _itemPositionsListener.itemPositions.value;
       if (positions.isNotEmpty) {
         // Find first visible item
+        final minIndex = positions.map((e) => e.index).reduce((a, b) => a < b ? a : b);
         final firstVisible = positions
             .where((pos) => pos.itemLeadingEdge >= 0)
             .map((pos) => pos.index)
@@ -103,6 +106,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
             _markdownContent['intro'] != null &&
             (_markdownContent['intro'] as String).isNotEmpty;
         setState(() {
+          _showScrollToTop = minIndex > 0;
           _currentSectionIndex = hasIntro ? firstVisible - 1 : firstVisible;
           if (_currentSectionIndex < 0) _currentSectionIndex = 0;
         });
@@ -220,7 +224,8 @@ class _ArticleScreenState extends State<ArticleScreen> {
         (_markdownContent['intro'] as String).isNotEmpty;
 
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: _showScrollToTop
+        ? FloatingActionButton(
         onPressed: () {
           _itemScrollController.scrollTo(
             index: 0,
@@ -230,7 +235,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
         },
         tooltip: 'Go to Top',
         child: const Icon(Icons.arrow_upward),
-      ),
+      ):null,
       appBar: AppBar(
         title: Text(
           _markdownContent['mainTitle']?.toString() ?? widget.title,
@@ -263,23 +268,26 @@ class _ArticleScreenState extends State<ArticleScreen> {
               }
             },
             itemBuilder: (context) => [
-              const PopupMenuItem(
-                value: 'inc',
+              PopupMenuItem(
+                value: 'font',
                 child: Row(
                   children: [
-                    Icon(Icons.text_increase),
+                    Icon(
+                      Icons.text_fields,
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
                     SizedBox(width: 8),
-                    Text('Increase Font Size'),
-                  ],
-                ),
-              ),
-              const PopupMenuItem(
-                value: 'dec',
-                child: Row(
-                  children: [
-                    Icon(Icons.text_decrease),
-                    SizedBox(width: 8),
-                    Text('Decrease Font Size'),
+                    Expanded(
+                      child: Slider(
+                        value: _fontSize, 
+                        onChanged: (val){
+                          setState((){_fontSize = val;});
+                        },
+                        min: 12,
+                        max: 32,
+                        divisions: 10,
+                      )
+                    )
                   ],
                 ),
               ),
@@ -293,76 +301,142 @@ class _ArticleScreenState extends State<ArticleScreen> {
         currentSectionIndex: _currentSectionIndex,
         onSectionTap: (i) => _scrollToSection(i),
       ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : _errorMessage != null
-          ? Center(child: Text(_errorMessage!))
-          : Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: ScrollablePositionedList.builder(
-                itemScrollController: _itemScrollController,
-                itemPositionsListener: _itemPositionsListener,
-                itemCount: sections.length + (hasIntro ? 1 : 0),
-                itemBuilder: (context, index) {
-                  if (hasIntro && index == 0) {
-                    return GptMarkdown(
-                      _markdownContent['intro'],
-                      style: TextStyle(fontSize: _fontSize),
-                    );
-                  }
-                  final sectionIndex = hasIntro ? index - 1 : index;
-                  final section = sections[sectionIndex];
-                  final title = section['title'] as String? ?? '';
-                  final intro = section['intro'] as String? ?? '';
-                  final subSections =
-                      section['subsections'] as List<dynamic>? ?? [];
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(height: 24),
-                      Text(
-                        title,
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: _fontSize + 4,
+      body: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 300),
+        child: _isLoading
+            ? Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const CircularProgressIndicator(),
+                  const SizedBox(height: 16),
+                  Text(
+                    'Loading content...',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                ],
+              )
+            )
+            : _errorMessage != null
+            ? Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.error_outline, color: Colors.red, size: 48),
+                  const SizedBox(height: 16),
+                  Text(
+                    _errorMessage!,
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      color: Colors.red,
+                    ),
+                  ),
+                ],
+              )
+            )
+            : Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ScrollablePositionedList.builder(
+                  itemScrollController: _itemScrollController,
+                  itemPositionsListener: _itemPositionsListener,
+                  itemCount: sections.length + (hasIntro ? 1 : 0),
+                  itemBuilder: (context, index) {
+                    if (hasIntro && index == 0) {
+                      return Card(
+                        elevation: 2,
+                        margin: const EdgeInsets.symmetric(vertical: 12),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
                         ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: GptMarkdown(
+                            _markdownContent['intro'],
+                            style: TextStyle(fontSize: _fontSize),
+                          ),
+                        ),
+                      );
+                    }
+                    final sectionIndex = hasIntro ? index - 1 : index;
+                    final section = sections[sectionIndex];
+                    final title = section['title'] as String? ?? '';
+                    final intro = section['intro'] as String? ?? '';
+                    final subSections =
+                        section['subsections'] as List<dynamic>? ?? [];
+                    return Card(
+                      margin: const EdgeInsets.symmetric(vertical: 12),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
                       ),
-                      if (intro.isNotEmpty) ...[
-                        const SizedBox(height: 8),
-                        GptMarkdown(
-                          intro,
-                          style: TextStyle(fontSize: _fontSize),
-                        ),
-                      ],
-                      if (subSections.isNotEmpty)
-                        ...subSections.map((sub) {
-                          final subTitle = sub['title'] as String? ?? '';
-                          final subContent = sub['content'] as String? ?? '';
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const SizedBox(height: 16),
-                              Text(
-                                subTitle,
-                                style: Theme.of(context).textTheme.titleMedium
-                                    ?.copyWith(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: _fontSize + 2,
-                                    ),
+                      elevation: 3,
+                      color: Theme.of(context).colorScheme.surface,
+                      child: Padding(
+                        padding: const EdgeInsets.all(18.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  width: 6,
+                                  height: 32,
+                                  decoration: BoxDecoration(
+                                    color: Theme.of(context).colorScheme.primary,
+                                    borderRadius: BorderRadius.circular(6),
+                                  ),
+                                ),
+                              const SizedBox(height: 12),
+                              Expanded(
+                                child: Text(
+                                  title,
+                                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: _fontSize + 4,
+                                    color: Theme.of(context).colorScheme.onSurface,
+                                  ),
+                                ),
                               ),
+                              ],
+                            ),
+                            if (intro.isNotEmpty) ...[
                               const SizedBox(height: 8),
                               GptMarkdown(
-                                subContent,
+                                intro,
                                 style: TextStyle(fontSize: _fontSize),
                               ),
                             ],
-                          );
-                        }),
-                    ],
-                  );
-                },
+                            if (subSections.isNotEmpty)
+                              ...subSections.map((sub) {
+                                final subTitle = sub['title'] as String? ?? '';
+                                final subContent = sub['content'] as String? ?? '';
+                                return Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Divider(height: 32, thickness: 1.2,),
+                                    const SizedBox(height: 16),
+                                    Text(
+                                      subTitle,
+                                      style: Theme.of(context).textTheme.titleMedium
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: _fontSize + 2,
+                                          ),
+                                    ),
+                                    const SizedBox(height: 8),
+                                    GptMarkdown(
+                                      subContent,
+                                      style: TextStyle(fontSize: _fontSize),
+                                    ),
+                                  ],
+                                );
+                              }),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
               ),
-            ),
+      ),
     );
   }
 }

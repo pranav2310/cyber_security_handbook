@@ -17,23 +17,27 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Cyber Security Handbook',
       theme: ThemeData(
+        colorScheme: ColorScheme(
+          brightness: Brightness.light,
+          primary: orange,
+          onPrimary: white,       // Text/icons on orange
+          secondary: blue,        // Accent color
+          onSecondary: white,     // Text/icons on blue
+          error: Colors.red,
+          onError: white,
+          surface: white,         // Cards/sheets background
+          onSurface: blue,        // Text/icons on surface
+        ),
         appBarTheme: AppBarTheme(
-          color: orange
+          backgroundColor: orange,
+          foregroundColor: white, // Text/icons in AppBar
+          iconTheme: IconThemeData(color: white),
         ),
         iconTheme: IconThemeData(
-          color: blue
+          color: blue,
         ),
-        colorScheme: ColorScheme(
-          brightness: Brightness.light, 
-          primary: orange, 
-          onPrimary: blue, 
-          secondary: white, 
-          onSecondary: blue, 
-          error: Colors.red,
-          onError: white, 
-          surface: blue, 
-          onSurface: white
-        )
+        scaffoldBackgroundColor: white,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const StartingGrid(),
     );
