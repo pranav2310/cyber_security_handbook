@@ -155,6 +155,11 @@ class _SearchScreenState extends State<SearchScreen> {
     }
 
     if (_results.isEmpty) {
+      if(_query.isEmpty){
+        return const Center(
+          child: Text("Please enter a search term"),
+        );
+      }
       return const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
