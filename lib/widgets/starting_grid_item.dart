@@ -1,5 +1,4 @@
 import 'package:cyber_security/screens/article_screen.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class StartingGridItem extends StatelessWidget {
@@ -35,10 +34,16 @@ class StartingGridItem extends StatelessWidget {
     final double calculatedTextScale = MediaQuery.of(context).textScaler.scale(1.0) > 1.0 ? 0.9 : 1.0;
 
     double iconSize;
-    if (kIsWeb) {
-      iconSize = screenWidth < 600 ? 56 : 72; // Smaller icon for web on narrow screens
+    if (screenWidth < 360) {
+      iconSize = 40; // Very small screens (e.g., small phones)
+    } else if (screenWidth < 600) {
+      iconSize = 48; // Standard phone screens
+    } else if (screenWidth < 900) {
+      iconSize = 56; // Small tablets / larger phones
+    } else if (screenWidth < 1200) {
+      iconSize = 64; // Larger tablets / small desktop
     } else {
-      iconSize = screenWidth < 400 ? 40 : 48; // Smaller icon for mobile on very narrow screens
+      iconSize = 72; // Large desktop screens
     }
 
     return Card(
