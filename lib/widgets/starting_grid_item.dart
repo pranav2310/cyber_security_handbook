@@ -24,6 +24,8 @@ class StartingGridItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final screenWidth = mediaQuery.size.width;
     final theme = Theme.of(context);
     final Color bg = backgroundColor ?? theme.colorScheme.primary.withOpacity(0.08);
     final Color border = borderColor ?? theme.colorScheme.primary.withOpacity(0.18);
@@ -31,6 +33,13 @@ class StartingGridItem extends StatelessWidget {
     final Color textColor = theme.colorScheme.onSurface;
 
     final double calculatedTextScale = MediaQuery.of(context).textScaler.scale(1.0) > 1.0 ? 0.9 : 1.0;
+
+    double iconSize;
+    if (kIsWeb) {
+      iconSize = screenWidth < 600 ? 56 : 72; // Smaller icon for web on narrow screens
+    } else {
+      iconSize = screenWidth < 400 ? 40 : 48; // Smaller icon for mobile on very narrow screens
+    }
 
     return Card(
       color: bg,
@@ -57,13 +66,13 @@ class StartingGridItem extends StatelessWidget {
         },
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(16),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
                   icon.icon,
-                  size: kIsWeb ? 72 : 48,
+                  size: iconSize,
                   color: iconColor,
                   semanticLabel: articleName,
                 ),
