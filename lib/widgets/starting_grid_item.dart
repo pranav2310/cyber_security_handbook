@@ -46,6 +46,17 @@ class StartingGridItem extends StatelessWidget {
       iconSize = 72; // Large desktop screens
     }
 
+    double baseFontSize;
+    if (screenWidth < 360) {
+      baseFontSize = 14; // Smaller font for very small screens
+    } else if (screenWidth < 600) {
+      baseFontSize = 16; // Standard font for phone screens
+    } else if (screenWidth < 900) {
+      baseFontSize = 18; // Slightly larger for tablets/larger phones
+    } else {
+      baseFontSize = 20; // Larger font for desktop screens
+    }
+
     return Card(
       color: bg,
       elevation: elevation,
@@ -88,6 +99,7 @@ class StartingGridItem extends StatelessWidget {
                     style: theme.textTheme.titleMedium?.copyWith(
                       color: textColor,
                       fontWeight: FontWeight.w600,
+                      fontSize: baseFontSize
                     ),
                     textAlign: TextAlign.center,
                     maxLines: 2,
