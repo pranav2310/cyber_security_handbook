@@ -17,18 +17,12 @@ class SectionDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Theme.of(context).colorScheme.secondary ,
       child: Column(
         children: [
           DrawerHeader(
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Theme.of(context).colorScheme.primary,
-                  Theme.of(context).colorScheme.secondary,
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
+              color: Theme.of(context).colorScheme.primary,
             ),
             child: Stack(
               children: [
@@ -78,16 +72,18 @@ class SectionDrawer extends StatelessWidget {
               separatorBuilder: (context, i) => Divider(
                 height: 1,
                 thickness: 0.8,
-                color: Theme.of(context).dividerColor.withOpacity(0.4),
+                color: Theme.of(context).colorScheme.secondary,
               ),
               itemBuilder: (context, i) {
                 final title = sections[i]['title'] as String? ?? '';
                 return Material(
                   child: ListTile(
+                    tileColor: Theme.of(context).colorScheme.secondary,
                     title: Text(
                       title,
                       style: TextStyle(
                         fontWeight: FontWeight.normal,
+                        color: Theme.of(context).colorScheme.onSecondary,
                       ),
                     ),
                     onTap: () {

@@ -45,5 +45,13 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>https</string> <!-- For HTTPS links -->
+        <string>http</string>  <!-- For HTTP links -->
+        <string>tel</string>   <!-- For tel: links (phone calls) -->
+        <string>mailto</string> <!-- For mailto: links -->
+        <string>sms</string>   <!-- For sms: links -->
+    </array>
 </dict>
 </plist>

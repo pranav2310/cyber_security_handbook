@@ -1,6 +1,7 @@
 import 'package:cyber_security/screens/search_screen.dart';
 import 'package:cyber_security/widgets/starting_grid_item.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 final Color orange = const Color(0xFFF37022);
 final Color blue = const Color(0xFF051951);
@@ -69,6 +70,11 @@ final List<GridArticle> gridArticles = [
     mdfile: "assets/cyber_security_articles/banking.md",
     icon: Icons.currency_rupee_sharp,
   ),
+  GridArticle(
+    title: "Mobile Phone Security",
+    mdfile: "assets/cyber_security_articles/lost_phone.md",
+    icon: Icons.smartphone,
+  )
 ];
 
 class StartingGrid extends StatelessWidget {
@@ -123,6 +129,64 @@ class StartingGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        backgroundColor: blue,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(color: orange),
+              child: Text(
+                'Helpline Numbers and Resources',
+                style: TextStyle(
+                  color: white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.call, color: white),
+              title: Text('National Cyber Crime Helpline Number', style: TextStyle(color: white)),
+              subtitle: Text('1930', style: TextStyle(color: white, fontWeight: FontWeight.bold)),
+              onTap: (){
+                launchUrl(Uri.parse('tel:1930'));
+                Navigator.of(context).pop();
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.security, color: white),
+              title: Text('Cyber Crime Portal', style: TextStyle(color: white)),
+              subtitle: Text('https://cybercrime.gov.in/', style: TextStyle(color: white, fontWeight: FontWeight.bold)),
+              onTap: () {
+                final uri = Uri.tryParse("https://cybercrime.gov.in/");
+                if (uri != null) {
+                  launchUrl(uri);
+                  Navigator.of(context).pop();
+                }
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.verified_user, color: white),
+              title: Text('CERT-In (Indian Computer Emergency Response Team)', style: TextStyle(color: white)),
+              subtitle: Text('https://www.cert-in.org.in/', style: TextStyle(color: white, fontWeight: FontWeight.bold)),
+              onTap: () {
+                launchUrl(Uri.parse('https://www.cert-in.org.in/'));
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.email, color: white),
+              title: Text('Contact Us', style: TextStyle(color: white)),
+              subtitle: Text('info@cybersecurityhandbook.com', style: TextStyle(color: white, fontWeight: FontWeight.bold)),
+              onTap: () {
+                launchUrl(Uri.parse('mailto:info@cybersecurityhandbook.com?subject=Inquiry about Cyber Security Handbook'));
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: orange,
         title: Text(

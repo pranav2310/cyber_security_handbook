@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:gpt_markdown/gpt_markdown.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ArticleScreen extends StatefulWidget {
   const ArticleScreen({
@@ -211,6 +212,19 @@ class _ArticleScreenState extends State<ArticleScreen> {
     }
   }
 
+  Future<void> _handleLinkTap(String? url) async{
+    if(url != null){
+      final uri = Uri.tryParse(url);
+      if (await canLaunchUrl(uri!)) {
+        await launchUrl(uri, mode: LaunchMode.externalApplication);
+      } else {
+        setState(() {
+          _errorMessage = 'Could not open link: $url';
+        });
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> sections =
@@ -352,7 +366,8 @@ class _ArticleScreenState extends State<ArticleScreen> {
                           child: GptMarkdown(
                             _markdownContent['intro'],
                             style: TextStyle(fontSize: _fontSize),
-                          ),
+                            onLinkTab: (url, title) => _handleLinkTap(url),
+                          )
                         ),
                       );
                     }
@@ -402,6 +417,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
                               GptMarkdown(
                                 intro,
                                 style: TextStyle(fontSize: _fontSize),
+                                onLinkTab: (u, t) => _handleLinkTap(u),
                               ),
                             ],
                             if (subSections.isNotEmpty)
@@ -425,6 +441,9 @@ class _ArticleScreenState extends State<ArticleScreen> {
                                     GptMarkdown(
                                       subContent,
                                       style: TextStyle(fontSize: _fontSize),
+                                      onLinkTab: (url, title) {
+                                        _handleLinkTap(url);
+                                      },
                                     ),
                                   ],
                                 );
