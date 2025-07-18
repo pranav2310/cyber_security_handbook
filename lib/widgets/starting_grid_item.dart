@@ -30,6 +30,8 @@ class StartingGridItem extends StatelessWidget {
     final Color iconColor = theme.colorScheme.primary;
     final Color textColor = theme.colorScheme.onSurface;
 
+    final double calculatedTextScale = MediaQuery.of(context).textScaler.scale(1.0) > 1.0 ? 0.9 : 1.0;
+
     return Card(
       color: bg,
       elevation: elevation,
@@ -66,15 +68,18 @@ class StartingGridItem extends StatelessWidget {
                   semanticLabel: articleName,
                 ),
                 const SizedBox(height: 18),
-                Text(
-                  articleName,
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    color: textColor,
-                    fontWeight: FontWeight.w600,
+                Flexible(
+                  child: Text(
+                    articleName,
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      color: textColor,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.center,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    textScaler: TextScaler.linear(calculatedTextScale),
                   ),
-                  textAlign: TextAlign.center,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),
