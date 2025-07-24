@@ -73,10 +73,10 @@ assets/
 ## Screenshots
 <p align="center">
     <h3>Web App</h3>
-    <img src="/assets/screenshots/StartingScreen.png" width="250"/>
-    <img src="/assets/screenshots/StartingScreenDrawer.png" width="250"/>
-    <img src="/assets/screenshots/HomeScreenSearch.png" width="250"/>
-    <img src="/assets/screenshots/ArticleScreen.png" width="250"/>
-    <img src="/assets/screenshots/ArticleScreenFontSizeinc.png" width="250"/>
-    <img src="/assets/screenshots/ArticleScreenSearch.png" width="250"/>
+    <img src="/assets/screenshots/StartingScreen.png" width="500"/>
+    <img src="/assets/screenshots/StartingScreenDrawer.png" width="500"/>
+    <img src="/assets/screenshots/HomeScreenSearch.png" width="500"/>
+    <img src="/assets/screenshots/ArticleScreen.png" width="500"/>
+    <img src="/assets/screenshots/ArticleScreenFontSizeinc.png" width="500"/>
+    <img src="/assets/screenshots/ArticleScreenSearch.png" width="500"/>
 </p>
