@@ -39,12 +39,15 @@
 ## Project Structure
 ```text
 lib/
+    data/
+        gridItems.dart
     screens/
         article_screen.dart
         search_screen.dart
         starting_grid.dart
     widgets/
         article_search.dart
+        home_drawer.dart
         section_drawer.dart
         starting_grid_item.dart
 assets/
@@ -59,9 +62,21 @@ assets/
         portable_smart_device.md
         removable_drive.md
         web_browsing.md
+        lost_phone.md
 ```
 ## Technologies Used
 - Flutter & Dart
 - Google Fonts(Lato)
 - Markdown rendering for article contet
 - Progressive Web App capabilities
+
+## Screenshots
+<p align="center">
+    <h3>Web App</h3>
+    <img src="/assets/screenshots/StartingScreen.png" width="250"/>
+    <img src="/assets/screenshots/StartingScreenDrawer.png" width="250"/>
+    <img src="/assets/screenshots/HomeScreenSearch.png" width="250"/>
+    <img src="/assets/screenshots/ArticleScreen.png" width="250"/>
+    <img src="/assets/screenshots/ArticleScreenFontSizeinc.png" width="250"/>
+    <img src="/assets/screenshots/ArticleScreenSearch.png" width="250"/>
+</p>

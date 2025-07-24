@@ -1,83 +1,16 @@
 import 'package:cyber_security/screens/search_screen.dart';
+import 'package:cyber_security/widgets/home_drawer.dart';
 import 'package:cyber_security/widgets/starting_grid_item.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:cyber_security/data/gridItems.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final Color orange = const Color(0xFFF37022);
-final Color blue = const Color(0xFF051951);
-final Color white = const Color(0xFFFFFFFF);
+const Color orange = Color(0xFFF37022);
+const Color blue = Color(0xFF051951);
+const Color white = Color(0xFFFFFFFF);
 
-class GridArticle {
-  final String title;
-  final String mdfile;
-  final IconData icon;
 
-  GridArticle({
-    required this.title,
-    required this.mdfile,
-    required this.icon,
-  });
-}
-
-final List<GridArticle> gridArticles = [
-  GridArticle(
-    title: "Desktop/Laptop Security",
-    mdfile: "assets/cyber_security_articles/desktop_laptop.md",
-    icon: Icons.laptop,
-  ),
-  GridArticle(
-    title: "Web Browsing",
-    mdfile: "assets/cyber_security_articles/web_browsing.md",
-    icon: Icons.web,
-  ),
-  GridArticle(
-    title: "Interacting on Social Media",
-    mdfile: "assets/cyber_security_articles/interacting_social_media.md",
-    icon: Icons.groups,
-  ),
-  GridArticle(
-    title: "Defense Against Malware",
-    mdfile: "assets/cyber_security_articles/malware_defense.md",
-    icon: Icons.shield,
-  ),
-  GridArticle(
-    title: "Handling Removable Storage Media",
-    mdfile: "assets/cyber_security_articles/removable_drive.md",
-    icon: Icons.usb,
-  ),
-  GridArticle(
-    title: "Portable Smart Devices",
-    mdfile: "assets/cyber_security_articles/portable_smart_device.md",
-    icon: Icons.wifi,
-  ),
-  GridArticle(
-    title: "Communicating Over Email",
-    mdfile: "assets/cyber_security_articles/email.md",
-    icon: Icons.mail,
-  ),
-  GridArticle(
-    title: "Networking at Home",
-    mdfile: "assets/cyber_security_articles/home_network.md",
-    icon: Icons.home_filled,
-  ),
-  GridArticle(
-    title: "Managing Passwords",
-    mdfile: "assets/cyber_security_articles/password.md",
-    icon: Icons.password,
-  ),
-  GridArticle(
-    title: "E-Commerce and Banking Over Internet",
-    mdfile: "assets/cyber_security_articles/banking.md",
-    icon: Icons.currency_rupee_sharp,
-  ),
-  GridArticle(
-    title: "Mobile Phone Security",
-    mdfile: "assets/cyber_security_articles/lost_phone.md",
-    icon: Icons.smartphone,
-  )
-];
-
-class StartingGrid extends StatelessWidget {
+class StartingGrid extends ConsumerWidget {
   const StartingGrid({super.key});
 
   int _getCrossAxisCount(BuildContext context) {
@@ -127,66 +60,10 @@ class StartingGrid extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final gridArticles = ref.watch(gridItemsProvider);
     return Scaffold(
-      drawer: Drawer(
-        backgroundColor: blue,
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(color: orange),
-              child: Text(
-                'Helpline Numbers and Resources',
-                style: TextStyle(
-                  color: white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            ListTile(
-              leading: Icon(Icons.call, color: white),
-              title: Text('National Cyber Crime Helpline Number', style: TextStyle(color: white)),
-              subtitle: Text('1930', style: TextStyle(color: white, fontWeight: FontWeight.bold)),
-              onTap: (){
-                launchUrl(Uri.parse('tel:1930'));
-                Navigator.of(context).pop();
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.security, color: white),
-              title: Text('Cyber Crime Portal', style: TextStyle(color: white)),
-              subtitle: Text('https://cybercrime.gov.in/', style: TextStyle(color: white, fontWeight: FontWeight.bold)),
-              onTap: () {
-                final uri = Uri.tryParse("https://cybercrime.gov.in/");
-                if (uri != null) {
-                  launchUrl(uri);
-                  Navigator.of(context).pop();
-                }
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.verified_user, color: white),
-              title: Text('CERT-In (Indian Computer Emergency Response Team)', style: TextStyle(color: white)),
-              subtitle: Text('https://www.cert-in.org.in/', style: TextStyle(color: white, fontWeight: FontWeight.bold)),
-              onTap: () {
-                launchUrl(Uri.parse('https://www.cert-in.org.in/'));
-                Navigator.pop(context); // Close the drawer
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.email, color: white),
-              title: Text('Contact Us', style: TextStyle(color: white)),
-              subtitle: Text('info@cybersecurityhandbook.com', style: TextStyle(color: white, fontWeight: FontWeight.bold)),
-              onTap: () {
-                launchUrl(Uri.parse('mailto:info@cybersecurityhandbook.com?subject=Inquiry about Cyber Security Handbook'));
-                Navigator.pop(context); // Close the drawer
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: HomeDrawer(),
       appBar: AppBar(
         backgroundColor: orange,
         title: Text(

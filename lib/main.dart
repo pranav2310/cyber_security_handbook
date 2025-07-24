@@ -1,12 +1,13 @@
 import 'package:cyber_security/screens/starting_grid.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final Color orange = const Color(0xFFF37022);
 final Color blue = const Color(0xFF051951);
 final Color white = const Color(0xFFFFFFFF);
 
 void main() {
-  runApp(const MyApp());
+  runApp(ProviderScope(child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
